@@ -1,6 +1,18 @@
+<h1>Stupid Coaching</h1>
+
+<%# se só estivessemos a lidar com o form utilizariamos isto abaixo: %>
 <%# the form needs to trigger the 2nd user story - Answer. So action=answer %>
-<form action="answer" data-turbo="false">
+<%# <form action="answer" data-turbo="false">
   <input type="text" name="question">
   <%# name was ???, ít is supposed to be question %>
-  <input type="submit" value="Ask!">
-</form>
+  <%# <input class="btn btn-primary" type="submit" value="Ask!"> %>
+<%# </form> %>
+
+<%= simple_form_for :search, url: answer_path, method: :get do |f| %>
+  <div class="search-form-control form-group">
+    <input class="form-control string required" type="text" name="question" id="search_query" placeholder="How may I serve you?" />
+    <button name="button" type="submit" class="btn btn-flat">
+      <i class="fas fa-search"></i> Ask
+    </button>
+  </div>
+<% end %>
